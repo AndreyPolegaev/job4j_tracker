@@ -1,6 +1,7 @@
 package ru.job4j.oop;
 /**
- *  public void exchange method() removes called object's value (load field) and add this value to another object.
+ * public void exchange method() removes called object's value (load field)
+ * and add this value to another object.
  */
 public class Battery {
     private int load;
