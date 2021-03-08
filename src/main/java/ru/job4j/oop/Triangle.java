@@ -1,6 +1,8 @@
 package ru.job4j.oop;
 import static java.lang.Math.sqrt;
-
+/**
+ * Triangle`s area
+ */
 public class Triangle {
     private Point first;
     private Point second;
