@@ -1,5 +1,11 @@
 package ru.job4j.tracker;
-
+import java.util.Arrays;
+/**
+ * public Item add(Item item) - добавление заявок
+ * public Item[] findAll() - получение списка всех заявок
+ * public Item[] findByName(String key) - получение списка по имени
+ * public Item findById(int id) - получение заявки по id
+ */
 public class Tracker {
     private final Item[] items = new Item[100];
     private int ids = 1;
@@ -9,6 +15,28 @@ public class Tracker {
         item.setId(ids++);
         items[size++] = item;
         return item;
+    }
+
+    public Item[] findAll() {
+        Item[] rsl = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+           if (items[i] != null) {
+               rsl[count++] = items[i];
+           }
+        }
+        return Arrays.copyOf(rsl, count);
+    }
+
+    public Item[] findByName(String key) {
+        Item[] rsl = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(key)) {
+                rsl[count++] = items[i];
+            }
+        }
+        return Arrays.copyOf(rsl, count);
     }
 
     public Item findById(int id) {
