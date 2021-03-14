@@ -1,7 +1,5 @@
 package ru.job4j.oop.UpCastingAndDownCasting;
 
-import ru.job4j.oop.College.Object;
-
 public class HierarchyUsage {
     public static void main(String[] args) {
         /* создаем объекта класса Car. */
