@@ -10,23 +10,19 @@ public class StartUI {
             if (select == 0) {
                 System.out.println("=== Create a new Item ====");
                 System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item item = new Item();
-                item.setName(name);
+                Item item = new Item(scanner.nextLine());
                 Item rslItem =  tracker.add(item);
-                System.out.println("Добавлено " + rslItem.getName() + " " + rslItem.getId());
+                System.out.println(rslItem + " Добавлено успешно");
             } else if (select == 1) {
                Item[] data = tracker.findAll();
                for (Item temp : data) {
-                   System.out.println(temp.getName() + " " + temp.getId());
+                   System.out.println(temp);
                }
             } else if (select == 2) {
                 System.out.println("Введите id заявки которую надо заменить: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 System.out.println("Введите имя заявки на которое заменить: ");
-                Item item = new Item();
-                String newName = scanner.nextLine();
-                item.setName(newName);
+                Item item = new Item(scanner.nextLine());
                 boolean rsl = tracker.replace(id, item);
                 if (rsl) {
                     System.out.println("Успешно");
@@ -46,7 +42,7 @@ public class StartUI {
                 int id = Integer.parseInt(scanner.nextLine());
                 Item item = tracker.findById(id);
                 if (item != null) {
-                    System.out.println(item.getName() + " " + item.getId());
+                    System.out.println(item);
                 } else {
                     System.out.println("Заявка с таким id не найдена");
                 }
@@ -56,7 +52,7 @@ public class StartUI {
                 Item[] items = tracker.findByName(name);
                 if (items.length != 0) {
                     for (Item temp : items) {
-                        System.out.println(temp.getName() + " " + temp.getId());
+                        System.out.println(temp);
                     }
                 } else {
                     System.out.println("Заявки с таким именем не найдены");
@@ -78,7 +74,8 @@ public class StartUI {
                 + "4. Find item by Id\n"
                 + "5. Find items by name\n"
                 + "6. Exit Program\n"
-                + "Select:");
+                + "Select:"
+        );
     }
 
     public static void main(String[] args) {
