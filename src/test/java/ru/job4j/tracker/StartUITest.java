@@ -6,41 +6,41 @@ import static org.junit.Assert.*;
 
 public class StartUITest {
 
-    @Test
-    public void whenAddItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Fix PC");
-        assertThat(created.getName(), is(expected.getName()));
-    }
-
-    @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
-                "replaced item"
-        };
-        StartUI.replaceItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
-    }
-
-    @Test
-    public void whenDeleteItemThenNull() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("FirstItem");
-        tracker.add(item);
-        String[] answers = {String.valueOf(item.getId())};
-        StartUI.deteleItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
-        assertThat(deleted, is(nullValue()));
-    }
+//    @Test
+//    public void whenAddItem() {
+//        String[] answers = {"Fix PC"};
+//        Input input = new StubInput(answers);
+//        Tracker tracker = new Tracker();
+//        StartUI.createItem(input, tracker);
+//        Item created = tracker.findAll()[0];
+//        Item expected = new Item("Fix PC");
+//        assertThat(created.getName(),is(expected.getName()));
+//    }
+//
+//    @Test
+//    public void whenReplaceItem() {
+//        Tracker tracker = new Tracker();
+//        Item item = new Item("new item");
+//        tracker.add(item);
+//        String[] answers = {
+//                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
+//                "replaced item"
+//        };
+//        StartUI.replaceItem(new StubInput(answers), tracker);
+//        Item replaced = tracker.findById(item.getId());
+//        assertThat(replaced.getName(),is("replaced item"));
+//    }
+//
+//    @Test
+//    public void whenDeleteItemThenNull() {
+//        Tracker tracker = new Tracker();
+//        Item item = new Item("FirstItem");
+//        tracker.add(item);
+//        String[] answers = {String.valueOf(item.getId())};
+//        StartUI.deteleItem(new StubInput(answers), tracker);
+//        Item deleted = tracker.findById(item.getId());
+//        assertThat(deleted,is(nullValue()));
+//    }
 
     @Test
     public void whenCreateItem() {
@@ -67,11 +67,11 @@ public class StartUITest {
                 new String[] {"0", String.valueOf(id), replacedName, "1"}
         );
         UserAction[] actions = {
-                new ReplaceAction(),
+                new ReplaceItem(),
                 new Exit()
         };
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+        assertThat(tracker.findById(item.getId()).getName(),is(replacedName));
     }
 
     @Test
@@ -88,6 +88,6 @@ public class StartUITest {
                 new Exit()
         };
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
+        assertThat(tracker.findById(item.getId()),is(nullValue()));
     }
 }
