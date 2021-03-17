@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class ReplaceItem implements UserAction {
+    private final Output out;
+
+    public ReplaceItem(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Edit Item";
@@ -12,9 +18,9 @@ public class ReplaceItem implements UserAction {
         Item item = new Item(input.askStr("Введите новое имя заявки: "));
         boolean rsl = tracker.replace(id, item);
         if (rsl) {
-            System.out.println("Успешно");
+             out.println("Успешно");
         } else {
-            System.out.println("На найдеена заявка в таким id");
+             out.println("На найдеена заявка в таким id");
         }
         return true;
     }
