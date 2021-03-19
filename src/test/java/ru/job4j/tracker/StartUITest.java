@@ -110,11 +110,13 @@ public class StartUITest {
 
     @Test
     public void whenFindAll(){
+        Tracker tracker = new Tracker();
+        Item item = new Item("new Item");
+        tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
-        Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new ShowAllItems(out),
                 new Exit()
@@ -124,6 +126,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Show All Items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
+                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Show All Items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -132,11 +135,13 @@ public class StartUITest {
 
     @Test
     public void whenFindByName(){
+        Tracker tracker = new Tracker();
+        Item item = new Item("new Item");
+        tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "newName", "1"}
+                new String[] {"0", "new Item", "1"}
         );
-        Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new FindItemByName(out),
                 new Exit()
@@ -146,7 +151,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. FindItemByName" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        "Заявки с таким именем не найдены" + System.lineSeparator() +
+                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. FindItemByName" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -155,11 +160,13 @@ public class StartUITest {
 
     @Test
     public void whenFindByID(){
+        Tracker tracker = new Tracker();
+        Item item = new Item("new Item");
+        tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"0", "1", "1"}
         );
-        Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new FindById(out),
                 new Exit()
@@ -169,7 +176,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        "Заявка с таким id не найдена" + System.lineSeparator() +
+                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
