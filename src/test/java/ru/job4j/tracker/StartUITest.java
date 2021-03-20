@@ -126,7 +126,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Show All Items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Show All Items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -165,7 +165,7 @@ public class StartUITest {
         tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "1", "1"}
+                new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new FindById(out),
