@@ -151,7 +151,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. FindItemByName" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. FindItemByName" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -176,7 +176,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='new Item'}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
