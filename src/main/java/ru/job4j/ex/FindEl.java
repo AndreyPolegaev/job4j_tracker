@@ -12,9 +12,8 @@ public class FindEl {
         }
         if (index == -1) {
             throw new ElementNotFoundException("This key wasn't found in array");
-        } else {
-            return index;
         }
+        return index;
     }
 
     public static void main(String[] args) {
