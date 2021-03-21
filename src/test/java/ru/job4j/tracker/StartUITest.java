@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.*;
@@ -95,7 +98,7 @@ public class StartUITest {
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -109,13 +112,13 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindAll(){
+    public void whenFindAll() {
         Tracker tracker = new Tracker();
         Item item = new Item("new Item");
         tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "1"}
+                new String[]{"0", "1"}
         );
         UserAction[] actions = {
                 new ShowAllItems(out),
@@ -134,13 +137,13 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByName(){
+    public void whenFindByName() {
         Tracker tracker = new Tracker();
         Item item = new Item("new Item");
         tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "new Item", "1"}
+                new String[]{"0", "new Item", "1"}
         );
         UserAction[] actions = {
                 new FindItemByName(out),
@@ -159,13 +162,13 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByID(){
+    public void whenFindByID() {
         Tracker tracker = new Tracker();
         Item item = new Item("new Item");
         tracker.add(item); /* добавили новую заявку в трекер */
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"}
+                new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new FindById(out),
@@ -181,5 +184,27 @@ public class StartUITest {
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
         ));
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"1", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Exit" + ln
+                        + "Wrong input, you can select: 0 .. 0" + ln
+                        + "Menu." + ln
+                        + "0. Exit" + ln
+                )
+        );
     }
 }
