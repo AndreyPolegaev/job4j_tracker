@@ -76,8 +76,6 @@ public class ValidateInputTest {
                         "Menu." + System.lineSeparator() +
                         "0. Add new Item" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
-
-                /* вопрос? Куда делся пунк меню "Выберете действие" */
         ));
     }
 
