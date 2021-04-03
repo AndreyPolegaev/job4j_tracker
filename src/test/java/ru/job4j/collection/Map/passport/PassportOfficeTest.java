@@ -3,6 +3,7 @@ package ru.job4j.collection.Map.passport;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 public class PassportOfficeTest {
@@ -20,5 +21,13 @@ public class PassportOfficeTest {
         PassportOffice office = new PassportOffice();
         office.add(citizen);
         assertThat(office.add(new Citizen("234fff232", "Silvester Stallone")), is(false));
+    }
+
+    @Test
+    public void whenPassportisAbsent() {
+        Citizen citizen = new Citizen("234fff232", "Silvester Stallone");
+        PassportOffice office = new PassportOffice();
+        office.add(citizen);
+        assertThat(office.get("xxxxxxx"), is(nullValue()));
     }
 }
