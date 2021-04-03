@@ -1,5 +1,10 @@
 package ru.job4j.tracker;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
@@ -13,10 +18,10 @@ public class ValidateInputTest {
                 new String[] {"one", "1"}
         );
         Input input = new ValidateInput(out, in);
-        UserAction[] actions = {
+        List<UserAction> actions = new ArrayList<>();
+        Collections.addAll(actions,
                 new CreateAction(out),
-                new Exit()
-        };
+                new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
@@ -37,10 +42,10 @@ public class ValidateInputTest {
                 new String[] {"0", Integer.toString(item.getId()), "1"}
         );
         Input input = new ValidateInput(out, in);
-        UserAction[] actions = {
+        List<UserAction> actions = new ArrayList<>();
+        Collections.addAll(actions,
                 new DeleteAction(out),
-                new Exit()
-        };
+                new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
@@ -62,10 +67,10 @@ public class ValidateInputTest {
                 new String[] {"0", "newItem",  "1"}
         );
         Input input = new ValidateInput(out, in);
-        UserAction[] actions = {
+        List<UserAction> actions = new ArrayList<>();
+        Collections.addAll(actions,
                 new CreateAction(out),
-                new Exit()
-        };
+                new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
@@ -87,10 +92,10 @@ public class ValidateInputTest {
                 new String[] {"-1", "1"}
         );
         Input input = new ValidateInput(out, in);
-        UserAction[] actions = {
+        List<UserAction> actions = new ArrayList<>();
+        Collections.addAll(actions,
                 new CreateAction(out),
-                new Exit()
-        };
+                new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
