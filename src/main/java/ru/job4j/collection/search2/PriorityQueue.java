@@ -7,17 +7,13 @@ public class PriorityQueue {
     private int index = 0;
 
     public void put(Task task) {
-        if (tasks.isEmpty()) {     /* если коллекция пустая добавить объект*/
-            this.tasks.add(index, task);
-        } else {
-            for (Task temp : tasks) {
-                if (task.getPriority() < temp.getPriority()) {
-                    this.tasks.add(index, task);
-                    index++;
-                    break;
-                }
+        for (Task temp : tasks) {
+            if (task.getPriority() < temp.getPriority()) {
+                this.tasks.add(index++, task);
+                return;
             }
         }
+        this.tasks.add(tasks.size(), task);
     }
 
     public Task take() {
