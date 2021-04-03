@@ -20,5 +20,4 @@ public class FullSearchTest {
         Set<String> expected = new HashSet<>(Arrays.asList("1", "2"));
         assertThat(FullSearch.extractNumber(tasks), is(expected));
     }
-
 }
