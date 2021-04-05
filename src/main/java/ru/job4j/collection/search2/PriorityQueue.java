@@ -4,9 +4,8 @@ import java.util.LinkedList;
 
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
-    private int index = 0;
-
     public void put(Task task) {
+        int index = 0;
         for (Task temp : tasks) {
             if (task.getPriority() < temp.getPriority()) {
                 break;
@@ -15,7 +14,6 @@ public class PriorityQueue {
         }
         this.tasks.add(index, task);
     }
-
     public Task take() {
         return tasks.poll();
     }
