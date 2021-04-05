@@ -14,9 +14,11 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {  /* Должен добавить новый счет к пользователю, найти по паспорту */
         User user = findByPassport(passport);
-        List<Account> listAccount = users.get(user); /* получить список его счетов */
-        if (!listAccount.contains(account)) {
-            listAccount.add(account);
+        if (user != null) {
+            List<Account> listAccount = users.get(user); /* получить список его счетов */
+            if (!listAccount.contains(account)) {
+                listAccount.add(account);
+            }
         }
     }
 
@@ -35,7 +37,7 @@ public class BankService {
         Account account = null;
         User user = findByPassport(passport);
         List<Account> list = users.get(user); /* получить список его счетов */
-        if (user != null && !list.isEmpty()) {
+        if (user != null) {
             for (Account temp : list) {
                 if (temp.getRequisite().equals(requisite)) {
                     account = temp;
