@@ -1,9 +1,9 @@
 package ru.job4j.collection.search2;
-
 import java.util.LinkedList;
 
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
+
     public void put(Task task) {
         int index = 0;
         for (Task temp : tasks) {
@@ -14,6 +14,7 @@ public class PriorityQueue {
         }
         this.tasks.add(index, task);
     }
+
     public Task take() {
         return tasks.poll();
     }

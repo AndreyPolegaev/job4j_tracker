@@ -1,14 +1,15 @@
 package ru.job4j.collection.set;
 
 import org.junit.Test;
-import ru.job4j.collection.sortString.LexSort;
-import ru.job4j.collection.sortString.WideLexSort;
+import ru.job4j.collection.sortstring.LexSort;
+import ru.job4j.collection.sortstring.WideLexSort;
 
 import java.util.Arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class LexSortTest {
+
     @Test
     public void sortNum1and2and10() {
         String[] input = {
@@ -48,6 +49,4 @@ public class LexSortTest {
         Arrays.sort(input, new WideLexSort());
         assertThat(input, is(out));
     }
-
-
 }

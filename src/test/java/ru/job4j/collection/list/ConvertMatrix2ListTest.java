@@ -3,7 +3,6 @@ package ru.job4j.collection.list;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

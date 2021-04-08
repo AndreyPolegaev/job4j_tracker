@@ -24,10 +24,11 @@ public class ValidateInputTest {
                 new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                "0. Add new Item" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator() +
-                "Please enter validate data again." + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+               + "0. Add new Item" + System.lineSeparator()
+               + "1. Exit" + System.lineSeparator()
+               + "Please enter validate data again."
+               + System.lineSeparator()
         ));
     }
 
@@ -48,13 +49,13 @@ public class ValidateInputTest {
                 new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Delete Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator() +
-                        "Удалено успешно" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Delete Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                       + "0. Delete Item" + System.lineSeparator()
+                       + "1. Exit" + System.lineSeparator()
+                       + "Удалено успешно" + System.lineSeparator()
+                       + "Menu." + System.lineSeparator()
+                       + "0. Delete Item" + System.lineSeparator()
+                       + "1. Exit" + System.lineSeparator()
 
         ));
     }
@@ -73,14 +74,14 @@ public class ValidateInputTest {
                 new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Add new Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator() +
-                        "=== Create a new Item ====" + System.lineSeparator() +
-                        "Item{id=1, name='newItem'} Добавлено успешно" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Add new Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Add new Item" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Create a new Item ====" + System.lineSeparator()
+                        + "Item{id=1, name='newItem'} Добавлено успешно" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Add new Item" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
         ));
     }
 
@@ -98,14 +99,14 @@ public class ValidateInputTest {
                 new Exit());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Add new Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator() +
-                        "Wrong input, you can select: 0 .. 1" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Add new Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Add new Item" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "Wrong input, you can select: 0 .. 1"
+                        + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Add new Item" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
         ));
     }
-
 }

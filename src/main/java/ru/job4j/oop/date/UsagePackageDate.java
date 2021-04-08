@@ -13,12 +13,8 @@ public class UsagePackageDate {
         System.out.println("Current time: " + localTime);
         LocalDateTime currentDateTime = LocalDateTime.now();
         System.out.println("Current date and time " + currentDateTime);
-
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss");
         String currentDateTimeFormat = currentDateTime.format(formatter);
         System.out.println("Текущие дата и время после форматирования: " + currentDateTimeFormat);
-
-
     }
 }
