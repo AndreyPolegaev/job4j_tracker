@@ -2,6 +2,9 @@ package ru.job4j.collection.map.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель клиента с полями паспорт и имя
+ */
 public class User {
     private String passport;
     private String username;
