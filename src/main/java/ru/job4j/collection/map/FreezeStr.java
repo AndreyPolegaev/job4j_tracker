@@ -4,14 +4,23 @@ import java.util.*;
 
 public class FreezeStr {
     public static boolean eq(String left, String right) {
-        Map<Character, Integer> mapLeft = new HashMap<>();
-        Map<Character, Integer> mapRight = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < left.length(); i++) {
-            mapLeft.putIfAbsent(left.charAt(i), 0);
-            mapLeft.computeIfPresent(left.charAt(i), (key, value) -> value + 1);
-            mapRight.putIfAbsent(right.charAt(i), 0);
-            mapRight.computeIfPresent(right.charAt(i), (key, value) -> value + 1);
+            map.putIfAbsent(left.charAt(i), 0);
+            map.computeIfPresent(left.charAt(i), (key, value) -> value + 1);
         }
-        return mapLeft.equals(mapRight);
+        for (Character temp : right.toCharArray()) {
+            if (!map.containsKey(temp)) {
+                return false;
+            }
+            if (map.get(temp) == 1) {
+                map.remove(temp);
+                continue;
+            }
+            if (map.get(temp) > 1) {
+                map.replace(temp, (map.get(temp) - 1));
+            }
+        }
+        return map.isEmpty();
     }
 }
