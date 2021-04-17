@@ -12,12 +12,9 @@ public class FreezeStr {
         for (Character temp : right.toCharArray()) {
             if (!map.containsKey(temp)) {
                 return false;
-            }
-            if (map.get(temp) == 1) {
+            } else if (map.get(temp) == 1) {
                 map.remove(temp);
-                continue;
-            }
-            if (map.get(temp) > 1) {
+            } else if (map.get(temp) > 1) {
                 map.replace(temp, (map.get(temp) - 1));
             }
         }
