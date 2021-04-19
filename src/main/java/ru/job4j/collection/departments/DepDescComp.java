@@ -8,15 +8,9 @@ public class DepDescComp implements Comparator<String> {
         int rsl = 0;
         String[] leftData = left.split("/");
         String[] rightData = right.split("/");
-        int steps = Math.min(leftData.length, rightData.length);
-        for (int i = 0; i < steps; i++) {
-            rsl = rightData[i].compareTo(leftData[i]);
-            if (rsl == 0) {
-                rsl = left.compareTo(right);
-                break;
-            } else {
-                return rsl;
-            }
+        rsl = rightData[0].compareTo(leftData[0]);
+        if (rsl == 0) {
+            rsl = left.compareTo(right);
         }
         return rsl;
     }
