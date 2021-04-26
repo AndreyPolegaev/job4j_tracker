@@ -1,4 +1,4 @@
-package ru.job4j.function.school;
+package ru.job4j.function.streamapi.school;
 
 import java.util.Objects;
 

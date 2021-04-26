@@ -1,6 +1,5 @@
-package ru.job4j.function.school;
+package ru.job4j.function.streamapi.school;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;

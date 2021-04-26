@@ -1,4 +1,4 @@
-package ru.job4j.function.school;
+package ru.job4j.function.streamapi.school;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -62,5 +62,4 @@ public class SchoolTest {
         expected.add(new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
-
 }
