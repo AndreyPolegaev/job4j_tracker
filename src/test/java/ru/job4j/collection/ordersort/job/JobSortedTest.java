@@ -10,7 +10,7 @@ public class JobSortedTest {
 
     @Test
     public void whenUpByName() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Task", 1),
                 new Job("Fix", 0)
         );
@@ -23,7 +23,7 @@ public class JobSortedTest {
 
     @Test
     public void whenUpByPriority() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Task", 1),
                 new Job("Fix", 2)
         );
@@ -36,7 +36,7 @@ public class JobSortedTest {
 
     @Test
     public void whenDestByName() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Job4j", 1),
                 new Job("Ru", 2)
         );
@@ -49,7 +49,7 @@ public class JobSortedTest {
 
     @Test
     public void whenDestByNameLn() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Job4j", 1),
                 new Job("Ru", 2)
         );
@@ -62,7 +62,7 @@ public class JobSortedTest {
 
     @Test
     public void whenDescByPriority() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Task", 0),
                 new Job("Fix", 1)
         );
@@ -75,7 +75,7 @@ public class JobSortedTest {
 
     @Test
     public void whenComparatorByNameUpAndPriorityUp() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Task", 0),
                 new Job("Task", 1),
                 new Job("Relax", 1),
@@ -94,7 +94,7 @@ public class JobSortedTest {
 
     @Test
     public void whenComparatorByNameUpAndPriorityDesc() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Task", 0),
                 new Job("Task", 1),
                 new Job("Relax", 1),
@@ -113,7 +113,7 @@ public class JobSortedTest {
 
     @Test
     public void whenComparatorByNameLnAndPriorityUp() {
-        List<Job> nameUp = Arrays.asList(
+        List<Job> nameUp = List.of(
                 new Job("Wake up and start working", 0),
                 new Job("Read a book", 1),
                 new Job("Read a book", 2),
