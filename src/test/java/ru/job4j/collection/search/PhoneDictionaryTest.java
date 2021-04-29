@@ -11,7 +11,7 @@ public class PhoneDictionaryTest {
     public void whenFindByNameEquals() {
         PhoneDictionary phoneDictionary = new PhoneDictionary();
         phoneDictionary.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        ArrayList<Person> person = phoneDictionary.find("Ars");
+        var person = phoneDictionary.find("Ars");
         assertThat(person.get(0), is(new Person("Petr", "Arsentev", "534872", "Bryansk")));
     }
 
@@ -21,14 +21,14 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
     @Test
     public void whenListIsEmpty() {
         PhoneDictionary phones = new PhoneDictionary();
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.isEmpty(), is(true));
     }
 }
