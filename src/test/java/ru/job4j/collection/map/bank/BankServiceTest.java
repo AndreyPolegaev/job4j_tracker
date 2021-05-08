@@ -5,9 +5,18 @@ import org.junit.Test;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 public class BankServiceTest {
+
+    @Test
+    public void addUserThenSuchPassportIsAbsent() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        assertThat(bank.findByPassport("343"), is(Optional.empty()));
+    }
 
     @Test
     public void addUser() {
