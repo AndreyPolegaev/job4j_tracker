@@ -4,10 +4,7 @@ package ru.job4j.function.school;
  * Класс Analyze получает статистику по аттестатам.
  */
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,15 +25,13 @@ public class Analyze {
                 .getAsDouble())).collect(Collectors.toList());
     }
 
-    // sorted reversed ?
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream.flatMap(e -> e.getSubjects().stream())
-                .collect(Collectors.groupingBy(t -> t.getName(),
-                        Collectors.averagingDouble(t -> t.getScore())))
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new,
+                        Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream().map(p -> new Tuple(p.getKey(), p.getValue()))
-                .sorted(Comparator.comparing(Tuple::getName)
-                        .reversed()).collect(Collectors.toList());
+                .collect(Collectors.toList());
 
     }
 
@@ -50,8 +45,8 @@ public class Analyze {
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
         return stream.flatMap(e -> e.getSubjects().stream())
-                .collect(Collectors.groupingBy(t -> t.getName(),
-                        Collectors.summingDouble(t -> t.getScore())))
+                .collect(Collectors.groupingBy(Subject::getName,
+                        Collectors.summingDouble(Subject::getScore)))
                 .entrySet()
                 .stream().map(p -> new Tuple(p.getKey(), p.getValue()))
                 .max(Comparator.comparing(Tuple::getScore)).orElse(new Tuple("unkown", 0));
